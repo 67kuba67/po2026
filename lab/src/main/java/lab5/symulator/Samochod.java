@@ -35,16 +35,30 @@ public class Samochod
 
         samochod.wlacz();
 
-        sprzeglo.wcisnij();
-        skrzynia.zwiekszBieg();
-        skrzynia.zwiekszBieg();
-        skrzynia.zmniejszBieg();
-        sprzeglo.zwolnij();
+        try
+        {
+            sprzeglo.wcisnij();
+            skrzynia.zwiekszBieg();
+            skrzynia.zwiekszBieg();
+            skrzynia.zmniejszBieg();
+            sprzeglo.zwolnij();
 
-        pozycja.aktualizujPozycje(10,5);
+            skrzynia.zwiekszBieg();
+        }
+        catch (Exception e)
+            {
+                System.out.println("blad: " + e.getMessage());
+            }
+
+        Pozycja cel = new Pozycja(10,5);
+        pozycja.przemiesc(0.1, 20, cel);
+        System.out.println(pozycja.getPozycja());
 
 
         System.out.println("silnik: "+ silnik.getProducent() + " " + silnik.getModel() + " " + silnik.getObroty());
+        System.out.println("bieg: "+ skrzynia.getAktualnyBieg());
+        System.out.println("sprzeglo wcisniete: "+ sprzeglo.getStanSprzegla());
+        System.out.println("pozycja: "+ pozycja.getPozycja());
 
         samochod.wylacz();
     }

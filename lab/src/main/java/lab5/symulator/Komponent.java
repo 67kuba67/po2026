@@ -21,14 +21,4 @@ public class Komponent
         return model;
     }
 
-    public static void main(String[] args)
-    {
-        Silnik silnik = new Silnik("Opel", "2.2");
-        Sprzeglo sprzeglo = new Sprzeglo()
-
-
-
-    }
-
-
 }

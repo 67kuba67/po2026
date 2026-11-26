@@ -13,16 +13,25 @@ public class SkrzyniaBiegow extends Komponent
         this.sprzeglo = sprzeglo;
     }
 
-    public void zwiekszBieg()
+    public void zwiekszBieg() throws Exception
     {
+        if(!getSprzeglo().getStanSprzegla())
+        {
+            throw new Exception("nie wcisniete sprzeglo");
+        }
         if(aktualnyBieg<iloscBiegow)
         {
             aktualnyBieg++;
         }
         System.out.println("bieg="+aktualnyBieg);
     }
-    public void zmniejszBieg()
+    public void zmniejszBieg() throws Exception
     {
+        if(!getSprzeglo().getStanSprzegla())
+        {
+            throw new Exception("nie wcisniete sprzeglo");
+        }
+
         if(aktualnyBieg>0)
         {
             aktualnyBieg--;
@@ -40,7 +49,7 @@ public class SkrzyniaBiegow extends Komponent
         return aktualnyBieg;
     }
 
-    public Sprzeglo sprzeglo()
+    public Sprzeglo getSprzeglo()
     {
         return sprzeglo;
     }
